@@ -15,6 +15,13 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
+    <item row="4" column="0">
+     <widget class="QPushButton" name="button1">
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
     <item row="2" column="1">
      <widget class="QPushButton" name="button8">
       <property name="text">
@@ -40,13 +47,6 @@
      <widget class="QPushButton" name="multiplicationButton">
       <property name="text">
        <string>*</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="delButton">
-      <property name="text">
-       <string>DEL</string>
       </property>
      </widget>
     </item>
@@ -106,41 +106,6 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="percentageButton">
-      <property name="text">
-       <string>%</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QPushButton" name="button0">
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2">
-     <widget class="QPushButton" name="pointButton">
-      <property name="text">
-       <string>.</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="3">
-     <widget class="QPushButton" name="resultButton">
-      <property name="text">
-       <string>=</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="2">
-     <widget class="QPushButton" name="clearButton">
-      <property name="text">
-       <string>C</string>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0" colspan="4">
      <layout class="QGridLayout" name="mainLayout">
       <item row="0" column="0">
@@ -165,7 +130,7 @@
          <enum>QFrame::Box</enum>
         </property>
         <property name="text">
-         <string/>
+         <string>0</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
@@ -177,10 +142,38 @@
       </item>
      </layout>
     </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="button1">
+    <item row="5" column="1">
+     <widget class="QPushButton" name="button0">
       <property name="text">
-       <string>1</string>
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="pointButton">
+      <property name="text">
+       <string>.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QPushButton" name="resultButton">
+      <property name="text">
+       <string>=</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="delButton">
+      <property name="text">
+       <string>DEL</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="3">
+     <widget class="QPushButton" name="clearButton">
+      <property name="text">
+       <string>C</string>
       </property>
      </widget>
     </item>
@@ -202,7 +195,6 @@
   <tabstop>button7</tabstop>
   <tabstop>button8</tabstop>
   <tabstop>button9</tabstop>
-  <tabstop>delButton</tabstop>
   <tabstop>button4</tabstop>
   <tabstop>multiplicationButton</tabstop>
   <tabstop>pushButton_9</tabstop>
@@ -213,30 +205,12 @@
   <tabstop>subtractionButton</tabstop>
   <tabstop>button5</tabstop>
   <tabstop>divisionButton</tabstop>
-  <tabstop>percentageButton</tabstop>
   <tabstop>button0</tabstop>
-  <tabstop>pointButton</tabstop>
   <tabstop>resultButton</tabstop>
   <tabstop>clearButton</tabstop>
  </tabstops>
  <resources/>
  <connections>
-  <connection>
-   <sender>clearButton</sender>
-   <signal>clicked()</signal>
-   <receiver>display</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>41</x>
-     <y>172</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>77</x>
-     <y>77</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>button1</sender>
    <signal>clicked()</signal>
@@ -509,6 +483,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>clearButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>clearButtonOnClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>156</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>numberButtonOnClick()</slot>
@@ -516,5 +506,6 @@
   <slot>delButtonOnClick()</slot>
   <slot>operationButtonOnClick()</slot>
   <slot>resultButtonOnClick()</slot>
+  <slot>clearButtonOnClick()</slot>
  </slots>
 </ui>

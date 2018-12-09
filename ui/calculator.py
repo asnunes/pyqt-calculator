@@ -20,31 +20,57 @@ class CalculatorUI(QtWidgets.QMainWindow):
 
     def operationButtonOnClick(self):
         clickedButton = self.sender()
+        operationSimbol = clickedButton.text()
         displayLabel = self.uic.findChild(QLabel, 'display')
-        prevNumber = float(displayLabel.text())
-        mapper = {'/': OperationHandler.DIVIDE_OP, '*': OperationHandler.MULTIPLY_OP, 
-        '+': OperationHandler.ADD_OP, '-': OperationHandler.SUBTRACT_OP}
+        displayText = displayLabel.text()
+        
+        if Display.isNaN(displayText):
+            self.toggleDisplayStyleSheet(True)
+            return
 
-        self.operationHandler.setNewOperation(prevNumber, mapper[clickedButton.text()])
+        self.toggleDisplayStyleSheet(False)
+        self.setNewOperation(displayText, operationSimbol)
         displayLabel.setText('')
 
     def resultButtonOnClick(self):
         displayLabel = self.uic.findChild(QLabel, 'display')
-        nextNumber = float(displayLabel.text())
+        displayText = displayLabel.text()
+        nextNumber = float(displayLabel.text()) if displayText is not '' else 0.0
         result = self.operationHandler.operate(nextNumber)
         displayLabel.setText(str(result))
 
     def delButtonOnClick(self):
         self.delDisplayChar()
 
+    def clearButtonOnClick(self):
+        self.resetDisplayText()
+
     def setDisplay(self, input):
         displayLabel = self.uic.findChild(QLabel, 'display')
         currentText = displayLabel.text()
         output = Display.inputHandler(currentText, input)
         displayLabel.setText(output)
+        self.toggleDisplayStyleSheet(False)
 
     def delDisplayChar(self):
         displayLabel = self.uic.findChild(QLabel, 'display')
         currentText = displayLabel.text()
-        output = currentText[:-1]
+        output = Display.delHandler(currentText)
         displayLabel.setText(output)
+
+    def toggleDisplayStyleSheet(self, isError):
+        displayLabel = self.uic.findChild(QLabel, 'display')
+        color = 'red' if isError else 'black'
+        displayLabel.setStyleSheet('color: ' + color)
+
+    def resetDisplayText(self):
+        displayLabel = self.uic.findChild(QLabel, 'display')
+        displayLabel.setText('0')
+        self.toggleDisplayStyleSheet(False)
+
+    def setNewOperation(self, displayText, operationSimbol):
+        mapper = {'/': OperationHandler.DIVIDE_OP, '*': OperationHandler.MULTIPLY_OP, 
+        '+': OperationHandler.ADD_OP, '-': OperationHandler.SUBTRACT_OP}
+
+        prevNumber = float(displayText) if displayText is not '' else 0.0
+        self.operationHandler.setNewOperation(prevNumber, mapper[operationSimbol])
