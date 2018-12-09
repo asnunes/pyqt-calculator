@@ -397,8 +397,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pointButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>dotButtonOnClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>254</x>
+     <y>327</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>370</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>numberButtonOnClick()</slot>
+  <slot>dotButtonOnClick()</slot>
  </slots>
 </ui>

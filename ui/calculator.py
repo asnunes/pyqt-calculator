@@ -14,7 +14,7 @@ class CalculatorUI(QtWidgets.QMainWindow):
         self.setDisplay(number)
 
     def dotButtonOnClick(self):
-        pass
+        self.setDisplay('.')
 
     def setDisplay(self, input):
         displayLabel = self.uic.findChild(QLabel, 'display')
