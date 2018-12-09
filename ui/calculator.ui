@@ -65,7 +65,7 @@
      </widget>
     </item>
     <item row="3" column="2">
-     <widget class="QPushButton" name="pushButton_8">
+     <widget class="QPushButton" name="button6">
       <property name="text">
        <string>6</string>
       </property>
@@ -93,7 +93,7 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="button5">
       <property name="text">
        <string>5</string>
       </property>
@@ -207,11 +207,11 @@
   <tabstop>multiplicationButton</tabstop>
   <tabstop>pushButton_9</tabstop>
   <tabstop>button1</tabstop>
-  <tabstop>pushButton_8</tabstop>
+  <tabstop>button6</tabstop>
   <tabstop>button2</tabstop>
   <tabstop>button3</tabstop>
   <tabstop>subtractionButton</tabstop>
-  <tabstop>pushButton_7</tabstop>
+  <tabstop>button5</tabstop>
   <tabstop>divisionButton</tabstop>
   <tabstop>percentageButton</tabstop>
   <tabstop>button0</tabstop>
@@ -302,7 +302,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_7</sender>
+   <sender>button5</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>numberButtonOnClick()</slot>
@@ -318,7 +318,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_8</sender>
+   <sender>button6</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>numberButtonOnClick()</slot>

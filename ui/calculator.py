@@ -1,4 +1,6 @@
 from PyQt5 import QtWidgets, uic
+from PyQt5.QtWidgets import QLabel
+from models.display import Display
 
 class CalculatorUI(QtWidgets.QMainWindow):
     
@@ -7,4 +9,15 @@ class CalculatorUI(QtWidgets.QMainWindow):
         self.uic = uic.loadUi('ui/calculator.ui', self)
 
     def numberButtonOnClick(self):
-        print("button clicked")
+        clicked_button = self.sender()
+        number = int(clicked_button.text())
+        self.setDisplay(number)
+
+    def dotButtonOnClick(self):
+        pass
+
+    def setDisplay(self, input):
+        displayLabel = self.uic.findChild(QLabel, 'display')
+        currentText = displayLabel.text()
+        output = Display.inputHandler(currentText, input)
+        displayLabel.setText(output)
