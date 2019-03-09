@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QLabel
-from models.display import Display
-from models.operations import OperationHandler
+from modules.display import Display
+from modules.operations import OperationHandler
 
 class CalculatorUI(QtWidgets.QMainWindow):
     
